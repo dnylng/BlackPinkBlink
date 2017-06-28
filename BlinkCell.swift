@@ -24,8 +24,20 @@ class BlinkCell: UITableViewCell {
         
         let url = URL(string: blinkArea.imageURL)!
         
+        // Create background thread to do stuff
         DispatchQueue.global().async {
-            <#code#>
+            do {
+                // Asynchronously download url img
+                let data = try Data(contentsOf: url)
+                
+                // Update main thread with the image
+                DispatchQueue.global().sync {
+                    self.videoPreviewImage.image = UIImage(data: data)
+                }
+            } catch {
+                // Handle error
+                print("Error!")
+            }
         }
         
     }

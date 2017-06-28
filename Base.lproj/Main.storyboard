@@ -72,6 +72,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A3b-nG-93Q">
                                 <rect key="frame" x="0.0" y="132" width="320" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlinkCell" rowHeight="80" id="nIp-Qd-cQf" customClass="BlinkCell" customModule="BlackPinkBlink" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
