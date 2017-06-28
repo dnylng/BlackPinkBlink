@@ -73,7 +73,7 @@
                                 <rect key="frame" x="0.0" y="132" width="320" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="nIp-Qd-cQf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlinkCell" rowHeight="80" id="nIp-Qd-cQf" customClass="BlinkCell" customModule="BlackPinkBlink" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nIp-Qd-cQf" id="JGL-bx-bgu">
@@ -106,6 +106,10 @@
                                                 <constraint firstItem="Mjq-94-opE" firstAttribute="leading" secondItem="JGL-bx-bgu" secondAttribute="leading" constant="8" id="yR0-0Z-XAL"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="videoPreviewImage" destination="Mjq-94-opE" id="cdB-bv-3cc"/>
+                                            <outlet property="videoTitle" destination="TZv-hm-4JG" id="CMZ-gD-FuT"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -123,15 +127,19 @@
                             <constraint firstAttribute="trailing" secondItem="Ts2-z2-NqO" secondAttribute="trailing" id="vD8-YY-vcv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="A3b-nG-93Q" id="hto-Df-fKs"/>
+                        <segue destination="To4-4k-mxk" kind="showDetail" identifier="VideoVC" id="UQ6-Zs-rjW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24.375" y="35"/>
         </scene>
-        <!--View Controller-->
+        <!--VideoVC-->
         <scene sceneID="QRM-MF-YXf">
             <objects>
-                <viewController id="To4-4k-mxk" sceneMemberID="viewController">
+                <viewController id="To4-4k-mxk" customClass="VideoVC" customModule="BlackPinkBlink" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O37-Gd-z11"/>
                         <viewControllerLayoutGuide type="bottom" id="zev-aL-ziS"/>
@@ -139,12 +147,26 @@
                     <view key="view" contentMode="scaleToFill" id="hWw-VP-u1H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idM-MS-Def">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="PGT-U6-2BV"/>
+                                </constraints>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96956902739999995" green="0.65251809360000002" blue="0.72427183390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="idM-MS-Def" firstAttribute="leading" secondItem="hWw-VP-u1H" secondAttribute="leading" id="4jO-Ln-l6h"/>
+                            <constraint firstAttribute="trailing" secondItem="idM-MS-Def" secondAttribute="trailing" id="Fel-Py-89P"/>
+                            <constraint firstItem="idM-MS-Def" firstAttribute="top" secondItem="hWw-VP-u1H" secondAttribute="top" id="TzD-D3-dIw"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOW-fq-L0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="35"/>
+            <point key="canvasLocation" x="757.5" y="35"/>
         </scene>
     </scenes>
     <resources>
