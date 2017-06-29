@@ -17,8 +17,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlTest = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Amq-qlqbjYA\" frameborder=\"0\" allowfullscreen></iframe>"
-        
         let b1 = BlinkArea(imageURL: "https://i.ytimg.com/vi/Amq-qlqbjYA/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLB9W765Vycn8xBwoQ5iYplL6f6feg", videoURL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Amq-qlqbjYA\" frameborder=\"0\" allowfullscreen></iframe>", videoTitle: "As If It's Your Last")
         
         let b2 = BlinkArea(imageURL: "https://i.ytimg.com/vi/bwmSjveL3Lc/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLC9w_8WnBdwPXMcOGQ-OpvPUiP6Ww", videoURL: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/bwmSjveL3Lc\" frameborder=\"0\" allowfullscreen></iframe>", videoTitle: "Boombayah")
@@ -57,6 +55,19 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return blinkAreas.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let blinkArea = blinkAreas[indexPath.row]
+        performSegue(withIdentifier: "VideoVC", sender: blinkArea)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? VideoVC {
+            if let blink = sender as? BlinkArea {
+                destination.blinkArea = blink
+            }
+        }
     }
     
 }

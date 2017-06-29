@@ -156,14 +156,27 @@
                                     <constraint firstAttribute="height" constant="170" id="PGT-U6-2BV"/>
                                 </constraints>
                             </webView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apt-da-uJk">
+                                <rect key="frame" x="34" y="220" width="252" height="20"/>
+                                <fontDescription key="fontDescription" name="PRIMETIME-Regular" family="PRIMETIME" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96956902739999995" green="0.65251809360000002" blue="0.72427183390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="idM-MS-Def" firstAttribute="leading" secondItem="hWw-VP-u1H" secondAttribute="leading" id="4jO-Ln-l6h"/>
                             <constraint firstAttribute="trailing" secondItem="idM-MS-Def" secondAttribute="trailing" id="Fel-Py-89P"/>
+                            <constraint firstItem="Apt-da-uJk" firstAttribute="leading" secondItem="hWw-VP-u1H" secondAttribute="leadingMargin" constant="18" id="K1s-fU-kdC"/>
+                            <constraint firstItem="Apt-da-uJk" firstAttribute="top" secondItem="idM-MS-Def" secondAttribute="bottom" constant="50" id="OPm-db-Xtf"/>
                             <constraint firstItem="idM-MS-Def" firstAttribute="top" secondItem="hWw-VP-u1H" secondAttribute="top" id="TzD-D3-dIw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Apt-da-uJk" secondAttribute="trailing" constant="18" id="mFL-8e-Llr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="videoLbl" destination="Apt-da-uJk" id="boH-yN-AJ2"/>
+                        <outlet property="webView" destination="idM-MS-Def" id="R7f-MZ-WWI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOW-fq-L0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
